@@ -7,25 +7,25 @@ from gendiff import generate_diff
 
 def test_extra_value_second():
     result = generate_diff("tests/test_data/1.0.json", "tests/test_data/1.1.json")
-    expected = "{\n" "  a: 1\n" "  b: 1\n" "  c: 1\n" "+ d: 2\n}"
+    expected = "{\n  a: 1\n  b: 1\n  c: 1\n+ d: 2\n}"
     assert result == expected
 
 
 def test_not_all_keys_in_second():
     result = generate_diff("tests/test_data/1.0.json", "tests/test_data/1.2.json")
-    expected = "{\n" "  a: 1\n" "  b: 1\n" "- c: 1\n}"
+    expected = "{\n  a: 1\n  b: 1\n- c: 1\n}"
     assert result == expected
 
 
 def test_all_diff_values():
     result = generate_diff("tests/test_data/1.0.json", "tests/test_data/2.0.json")
-    expected = "{\n" "- a: 1\n" "+ a: 2\n" "- b: 1\n" "+ b: 2\n" "- c: 1\n" "+ c: 2\n}"
+    expected = "{\n- a: 1\n+ a: 2\n- b: 1\n+ b: 2\n- c: 1\n+ c: 2\n}"
     assert result == expected
 
 
 def test_all_same_values():
     result = generate_diff("tests/test_data/1.0.json", "tests/test_data/1.0.json")
-    expected = "{\n" "  a: 1\n" "  b: 1\n" "  c: 1\n}"
+    expected = "{\n  a: 1\n  b: 1\n  c: 1\n}"
     assert result == expected
 
 
@@ -37,7 +37,7 @@ def test_empty_files():
 
 def test_unique_value_in_second():
     result = generate_diff("tests/test_data/2.0.json", "tests/test_data/2.1.json")
-    exected = "{\n" "  a: 2\n" "- b: 2\n" "- c: 2\n" "+ d: 2\n}"
+    exected = "{\n  a: 2\n- b: 2\n- c: 2\n+ d: 2\n}"
     assert result == exected
 
 
