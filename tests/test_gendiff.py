@@ -49,3 +49,14 @@ def test_all_diff_values():
         "+ timeout: 40\n}"
     )
     assert result == expected
+
+def test_all_same_values():
+    result = generate_diff("tests/test_data/full.json", "tests/test_data/full.json")
+    expected = (
+        "{\n"
+        "  follow: False\n"
+        "  host: hexlet.io\n"
+        "  proxy: 123.234.53.22\n"
+        "  timeout: 50\n}"
+    )
+    assert result == expected
