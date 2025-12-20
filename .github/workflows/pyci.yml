@@ -28,8 +28,8 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information
-          SONAR_TOKEN: ${{ 8d1e4cdf8d0ab6202de6dc194b92907c0a2e0db9 }}   # Generate a token on SonarQube, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
-          SONAR_HOST_URL: ${{ https://sonarcloud.io/summary/overall?id=Imabirdmf_python-project-50 }}   # add the URL of your instance to the secrets of this repo with the name SONAR_HOST_URL (Settings > Secrets > Actions > add new repository secret)
+          SONAR_TOKEN: 8d1e4cdf8d0ab6202de6dc194b92907c0a2e0db9   # Generate a token on SonarQube, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
+          SONAR_HOST_URL: https://sonarcloud.io/summary/overall?id=Imabirdmf_python-project-50   # add the URL of your instance to the secrets of this repo with the name SONAR_HOST_URL (Settings > Secrets > Actions > add new repository secret)
 #        uses: SonarSource/sonarqube-scan-action@v6
         with:
           args: >
