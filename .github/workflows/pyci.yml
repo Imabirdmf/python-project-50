@@ -2,7 +2,8 @@ name: Python CI
 
 on:
   - push
-  - pull_request
+  - pull_request:
+      types: [opened, synchronize, reopened]
 
 jobs:
   build:

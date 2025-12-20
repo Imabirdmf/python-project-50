@@ -13,3 +13,5 @@ format:
 
 check:
 	uv run pytest .
+
+test-coverage:
