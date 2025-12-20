@@ -34,3 +34,13 @@ profile = "black"
 
 [tool.mypy]
 exclude = ['\.venv', 'venv']
+
+[pytest]
+norecursedirs = [".venv", "venv"]
+minversion = "6.0"
+testpaths = "tests"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]

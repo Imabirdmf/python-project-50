@@ -1,12 +1,15 @@
 install:
-	pip install flake8 black isort mypy
+	uv sync
 
 lint:
-	flake8 .
-	black --check .
-	isort --check-only .
-	mypy .
+	uv run flake8 .
+	uv run black --check .
+	uv run isort --check-only .
+	uv run mypy .
 
 format:
-	black .
-	isort .
+	uv run black .
+	uv run isort .
+
+check:
+	uv run pytest .
