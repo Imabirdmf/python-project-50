@@ -25,18 +25,19 @@ exclude = '''
     \.venv
   | venv
   | \.git
+  | \.tox
 )/
 '''
 
 [tool.isort]
-skip = [".venv", "venv"]
+skip = [".venv", "venv", ".tox"]
 profile = "black"
 
 [tool.mypy]
-exclude = ['\.venv', 'venv']
+exclude = ['\.venv', 'venv', '\.tox', '.tox']
 
 [pytest]
-norecursedirs = [".venv", "venv"]
+norecursedirs = [".venv", "venv", ".tox"]
 minversion = "6.0"
 testpaths = "tests"
 
