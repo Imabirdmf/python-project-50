@@ -28,7 +28,7 @@ jobs:
         run: |
           make test-coverage
       - name: Analyze with SonarQube
-        uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
+        uses: SonarSource/sonarqube-scan-action@0301974ca5b5bcbc174092b67d58309503924f7e
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information
           SONAR_TOKEN: 8d1e4cdf8d0ab6202de6dc194b92907c0a2e0db9   # Generate a token on SonarQube, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
