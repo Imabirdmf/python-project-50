@@ -15,3 +15,4 @@ check:
 	uv run pytest .
 
 test-coverage:
+	uv run tox
