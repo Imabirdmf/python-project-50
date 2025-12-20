@@ -73,6 +73,19 @@ def test_mixed_values():
     assert result == exected
 
 
+def test_sort_keys():
+    result = generate_diff("tests/test_data/4.0.json", "tests/test_data/4.2.json")
+    exected = (
+        "{\n"
+        "  a: True\n"
+        "  b: abcd\n"
+        "  c: 1\n"
+        "  d: ['abc']\n"
+        "  e: None\n}"
+    )
+    assert result == exected
+
+
 def test_file_not_found():
     with pytest.raises(FileNotFoundError):
         generate_diff("non_existent.json", "tests/test_data/4.0.json")
