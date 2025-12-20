@@ -2,6 +2,7 @@
 source = gendiff
 omit = gendiff/scripts/*
 branch = True
+relative_files = True
 
 [report]
 show_missing = True

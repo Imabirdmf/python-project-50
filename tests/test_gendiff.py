@@ -75,14 +75,7 @@ def test_mixed_values():
 
 def test_sort_keys():
     result = generate_diff("tests/test_data/4.0.json", "tests/test_data/4.2.json")
-    exected = (
-        "{\n"
-        "  a: True\n"
-        "  b: abcd\n"
-        "  c: 1\n"
-        "  d: ['abc']\n"
-        "  e: None\n}"
-    )
+    exected = "{\n  a: True\n  b: abcd\n  c: 1\n  d: ['abc']\n  e: None\n}"
     assert result == exected
 
 
