@@ -1,4 +1,4 @@
-from gendiff.generate_diff import generate_diff
+from gendiff import generate_diff
 
 
 def test_diff_values():

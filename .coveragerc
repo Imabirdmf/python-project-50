@@ -1,0 +1,7 @@
+[run]
+source = gendiff
+omit = gendiff/scripts/*
+branch = True
+
+[report]
+show_missing = True
