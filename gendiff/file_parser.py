@@ -9,4 +9,4 @@ def file_parser(file_path: str) -> dict:
             return yaml.safe_load(f)
         elif file_path.endswith(".json"):
             return json.load(f)
-        raise FileNotFoundError(f"File {file_path} is not a valid YAML file.")
+        raise ValueError(f"File {file_path} is not a valid YAML file.")

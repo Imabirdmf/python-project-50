@@ -25,9 +25,17 @@ def test_all_same_values():
     assert result == expected
 
 
-def test_empty_files():
-    result = generate_diff(dict(), dict())
+def test_empty_dicts():
+    d = dict()
+    result = generate_diff(d, d)
     expected = "{\n}"
+    assert result == expected
+
+
+def test_empty_dict():
+    d = dict()
+    result = generate_diff({"a": 1, "b": 1, "c": 1}, d)
+    expected = "{\n- a: 1\n- b: 1\n- c: 1\n}"
     assert result == expected
 
 
@@ -81,3 +89,33 @@ def test_sort_keys():
     )
     exected = "{\n  a: True\n  b: abcd\n  c: 1\n  d: ['abc']\n  e: None\n}"
     assert result == exected
+
+
+def test_single_key():
+    result = generate_diff({"z": 1}, {"z": 2})
+    expected = "{\n- z: 1\n+ z: 2\n}"
+    assert result == expected
+
+
+def test_dict_value_as_plain_value():
+    result = generate_diff({"a": {"b": 1}}, {"a": {"b": 2}})
+    expected = "{\n- a: {'b': 1}\n+ a: {'b': 2}\n}"
+    assert result == expected
+
+
+def test_none_removed():
+    result = generate_diff({"a": None}, {})
+    expected = "{\n- a: None\n}"
+    assert result == expected
+
+
+def test_none_added():
+    result = generate_diff({}, {"a": None})
+    expected = "{\n+ a: None\n}"
+    assert result == expected
+
+
+def test_int_and_str_diff():
+    result = generate_diff({"a": 1}, {"a": "1"})
+    expected = "{\n- a: 1\n+ a: 1\n}"
+    assert result == expected

@@ -14,9 +14,6 @@ def main():
 
     args = parser.parse_args()
 
-    # print(f"Loaded data keys: {list(data1.items())} and {list(data2.items())}")
-    # print(f"Comparing {file1_path} and {file2_path} with format {args.format}")
-
     print(run_diff(args.first_file, args.second_file))
 
 

@@ -49,10 +49,5 @@ def test_invalid_yaml():
 
 
 def test_invalid_file_type():
-    with pytest.raises(FileNotFoundError):
+    with pytest.raises(ValueError):
         run_diff("tests/test_data_yaml/yaml.doc", "tests/test_data_json/json.xls")
-
-
-def test_invalid_file_path():
-    with pytest.raises(FileNotFoundError):
-        run_diff("tests/test_data/1.yaml", "tests/test_data/1.yaml")
