@@ -26,15 +26,13 @@ def test_all_same_values():
 
 
 def test_empty_dicts():
-    d = dict()
-    result = generate_diff(d, d)
+    result = generate_diff({}, {})
     expected = "{\n}"
     assert result == expected
 
 
 def test_empty_dict():
-    d = dict()
-    result = generate_diff({"a": 1, "b": 1, "c": 1}, d)
+    result = generate_diff({"a": 1, "b": 1, "c": 1}, {})
     expected = "{\n- a: 1\n- b: 1\n- c: 1\n}"
     assert result == expected
 
