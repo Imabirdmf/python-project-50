@@ -1,9 +1,6 @@
 import argparse
 
-from gendiff import generate_diff
-
-# first_file = 'files/file1.json'
-# second_file = 'files/file2.json'
+from gendiff.run_diff import run_diff
 
 
 def main():
@@ -20,8 +17,7 @@ def main():
     # print(f"Loaded data keys: {list(data1.items())} and {list(data2.items())}")
     # print(f"Comparing {file1_path} and {file2_path} with format {args.format}")
 
-    diff = generate_diff(args.first_file, args.second_file)
-    print(diff)
+    print(run_diff(args.first_file, args.second_file))
 
 
 if __name__ == "__main__":
