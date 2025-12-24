@@ -56,7 +56,7 @@ addopts = "--cov=gendiff --cov-report=xml"
 testpaths = ["tests"]
 
 [tool.coverage.run]
-source = ["gendiff"]
+source = ["gendiff/*"]
 relative_files = true
 omit = [
     "gendiff/__init__.py",
