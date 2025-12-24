@@ -57,6 +57,7 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 source = ["gendiff"]
+relative_files = true
 omit = [
     "gendiff/__init__.py",
     "gendiff/scripts/*"
