@@ -15,4 +15,4 @@ check:
 	uv run pytest .
 
 test-coverage:
-	pytest --cov --cov-report=xml:coverage.xml --cov-config=.coveragerc --cov-branch
+	 uv run pytest --cov --cov-report=xml:coverage.xml --cov-config=.coveragerc --cov-branch
