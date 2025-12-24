@@ -1,5 +1,5 @@
 [project]
-name = "gendiff"
+name = "python-project-50"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -51,20 +51,3 @@ dev = [
     "tox-uv>=1.29.0",
 ]
 
-#[tool.pytest.ini_options]
-#addopts = "--cov=gendiff --cov-report=xml"
-#testpaths = ["tests"]
-
-#[tool.coverage.run]
-#source = ["gendiff/*"]
-#relative_files = true
-#omit = [
-#    "gendiff/__init__.py",
-#    "gendiff/scripts/*"
-#]
-
-#[tool.coverage.paths]
-#source = [
-#    "gendiff",
-#    "**/site-packages/gendiff"
-#]

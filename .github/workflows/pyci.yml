@@ -39,3 +39,5 @@ jobs:
             -Dsonar.projectKey=Imabirdmf_python-project-50
             -Dsonar.organization=imabirdmf
             -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.coverage.exclusions=**/__init__.py,**/*scripts/*
+            -Dsonar.tests=tests
