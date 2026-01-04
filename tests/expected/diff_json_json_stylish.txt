@@ -1,0 +1,14 @@
+{
+  - a: True
+  + a: False
+  - b: abcd
+  + b: abcdghjk
+  - c: 1
+  + c: 10
+  - d: ['abc']
+  + d: ['abc', 'new']
+  - e: None
+  + f: {
+        g: 0
+    }
+}

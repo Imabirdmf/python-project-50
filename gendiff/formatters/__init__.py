@@ -1,11 +1,9 @@
-# gendiff/formatters/__init__.py
+from gendiff.formatters.plain import format as plain
 from gendiff.formatters.stylish import format as stylish
 
-FORMATTERS = {
-    'stylish': stylish
-}
+FORMATTERS = {"stylish": stylish, "plain": plain}
 
-DEFAULT_FORMAT = 'stylish'
+DEFAULT_FORMAT = "stylish"
 
 
 def get_formatter(name: str | None):
@@ -13,6 +11,6 @@ def get_formatter(name: str | None):
         name = DEFAULT_FORMAT
 
     if name not in FORMATTERS:
-        raise ValueError(f'Unknown format: {name}')
+        raise ValueError(f"Unknown format: {name}")
 
     return FORMATTERS[name]

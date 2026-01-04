@@ -1,0 +1,7 @@
+{
+    a: True
+    b: abcd
+    c: 1
+    d: ['abc']
+    e: None
+}

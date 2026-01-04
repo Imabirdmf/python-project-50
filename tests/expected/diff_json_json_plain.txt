@@ -1,0 +1,6 @@
+Property 'a' was updated. From true to false
+Property 'b' was updated. From 'abcd' to 'abcdghjk'
+Property 'c' was updated. From 1 to 10
+Property 'd' was updated. From [complex value] to [complex value]
+Property 'e' was removed
+Property 'f' was added with value: [complex value]
