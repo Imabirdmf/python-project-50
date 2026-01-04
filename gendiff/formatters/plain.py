@@ -1,4 +1,4 @@
-def format(data, path=[]):
+def format(data, path=None):
     def format_value(d):
         if type(d) in (dict, list):
             return "[complex value]"
@@ -9,6 +9,7 @@ def format(data, path=[]):
         else:
             return repr(d)
 
+    path = path or []
     lines = []
     for child in data:
         path.append(child["key"])
