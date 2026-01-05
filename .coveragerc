@@ -4,6 +4,7 @@ branch = true
 omit =
     gendiff/__init__.py
     gendiff/scripts/*
+    gendiff/formatters/__init__.py
 relative_files = true
 
 [report]

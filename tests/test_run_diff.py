@@ -6,60 +6,60 @@ import yaml
 from gendiff.run_diff import run_diff
 
 NO_DIFF_JSON_YAML = (
-    'test_data_json/4.0.json',
-    'test_data_yaml/4.0.yaml',
+    "test_data_json/4.0.json",
+    "test_data_yaml/4.0.yaml",
 )
 
 DIFF_JSON_JSON = (
-    'test_data_json/4.0.json',
-    'test_data_json/4.1.json',
+    "test_data_json/4.0.json",
+    "test_data_json/4.1.json",
 )
 
-NO_DIFF_YAML_YML = (
-    'test_data_yaml/1.0.yaml',
-    'test_data_yaml/1.0.yml'
-)
+NO_DIFF_YAML_YML = ("test_data_yaml/1.0.yaml", "test_data_yaml/1.0.yml")
 
-NESTED_JSON_JSON = (
-    'test_data_json/nested1.json',
-    'test_data_json/nested2.json'
-)
+NESTED_JSON_JSON = ("test_data_json/nested1.json", "test_data_json/nested2.json")
 
 EXPECTED = {
     NO_DIFF_JSON_YAML: {
         "stylish": "expected/no_diff_json_yaml_stylish.txt",
         "plain": "expected/no_diff_json_yaml_plain.txt",
+        "json": "expected/no_diff_json_yaml_json.json",
     },
     NO_DIFF_YAML_YML: {
         "stylish": "expected/no_diff_yaml_stylish.txt",
         "plain": "expected/no_diff_json_yaml_plain.txt",
+        "json": "expected/no_diff_yaml_json.json",
     },
     DIFF_JSON_JSON: {
         "stylish": "expected/diff_json_json_stylish.txt",
         "plain": "expected/diff_json_json_plain.txt",
+        "json": "expected/diff_json_json_json.json",
     },
     NESTED_JSON_JSON: {
         "stylish": "expected/nested_stylish.txt",
         "plain": "expected/nested_plain.txt",
+        "json": "expected/nested_json.json",
     },
 }
 
 
-@pytest.mark.parametrize("file1, file2",
-                         [
-                             pytest.param(*NO_DIFF_JSON_YAML, id='no-diff-json-vs-yaml'),
-                             pytest.param(*NO_DIFF_YAML_YML, id='no-diff-yaml-vs-yml'),
-                             pytest.param(*DIFF_JSON_JSON, id='json-vs-json'),
-                             pytest.param(*NESTED_JSON_JSON, id='nested-json-vs-nested-json'),
-                         ])
-@pytest.mark.parametrize("format_name",
-                         [
-                             pytest.param('stylish', id='stylish'),
-                             pytest.param('plain', id='plain'),
-                         ],
-                         )
-
-
+@pytest.mark.parametrize(
+    "file1, file2",
+    [
+        pytest.param(*NO_DIFF_JSON_YAML, id="no-diff-json-vs-yaml"),
+        pytest.param(*NO_DIFF_YAML_YML, id="no-diff-yaml-vs-yml"),
+        pytest.param(*DIFF_JSON_JSON, id="json-vs-json"),
+        pytest.param(*NESTED_JSON_JSON, id="nested-json-vs-nested-json"),
+    ],
+)
+@pytest.mark.parametrize(
+    "format_name",
+    [
+        pytest.param("stylish", id="stylish"),
+        pytest.param("plain", id="plain"),
+        pytest.param("json", id="json"),
+    ],
+)
 def test_diff_files(file1, file2, format_name):
     expected_file = EXPECTED[(file1, file2)][format_name]
     result = run_diff(f"tests/{file1}", f"tests/{file2}", format_name=format_name)
