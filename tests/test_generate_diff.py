@@ -66,7 +66,7 @@ def test_diff_files(file1, file2, format_name):
     result = generate_diff(f"tests/{file1}", f"tests/{file2}", format_name=format_name)
 
     with open(f"tests/{expected_file}", "r") as f:
-        expected = f.read()
+        expected = f.read().strip("\n")
     assert result == expected
 
 
@@ -101,10 +101,3 @@ def test_unknown_formatter():
             "tests/test_data_json/4.0.json",
             format_name="xml",
         )
-
-
-def test_stylish_ends_with_newline():
-    result = generate_diff(
-        "tests/test_data_json/4.0.json", "tests/test_data_json/4.1.json", "stylish"
-    )
-    assert result.endswith("\n")

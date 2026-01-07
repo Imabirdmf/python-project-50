@@ -39,4 +39,4 @@ def format(data: list, depth: int = 0):
             formatted_value = format_value(child["value"], depth + 1)
             lines.append(f"{child_indent}  {child['key']}: {formatted_value}")
     lines.append(f"{closing_indent}}}")
-    return f"{'\n'.join(lines)}\n" if depth == 0 else "\n".join(lines)
+    return "\n".join(lines)
