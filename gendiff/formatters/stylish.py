@@ -7,6 +7,10 @@ def format(data: list, depth: int = 0):
             result = ["{"]
             for k, v in d.items():
                 result.append(f"{key_indent}{k}: {format_value(v, depth + 1)}")
+        elif d is None:
+            return "null"
+        elif isinstance(d, bool):
+            return "true" if d else "false"
         else:
             return d
         result.append(f"{indent}}}")
@@ -35,4 +39,4 @@ def format(data: list, depth: int = 0):
             formatted_value = format_value(child["value"], depth + 1)
             lines.append(f"{child_indent}  {child['key']}: {formatted_value}")
     lines.append(f"{closing_indent}}}")
-    return "\n".join(lines)
+    return f"{'\n'.join(lines)}\n" if depth == 0 else "\n".join(lines)

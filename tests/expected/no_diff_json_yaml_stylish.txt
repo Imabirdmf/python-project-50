@@ -1,7 +1,7 @@
 {
-    a: True
+    a: true
     b: abcd
     c: 1
     d: ['abc']
-    e: None
+    e: null
 }

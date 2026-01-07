@@ -1,13 +1,13 @@
 {
-  - a: True
-  + a: False
+  - a: true
+  + a: false
   - b: abcd
   + b: abcdghjk
   - c: 1
   + c: 10
   - d: ['abc']
   + d: ['abc', 'new']
-  - e: None
+  - e: null
   + f: {
         g: 0
     }

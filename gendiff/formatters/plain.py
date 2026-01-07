@@ -31,4 +31,4 @@ def format(data, path=None):
             nested_str = format(child["children"], path)
             lines.append(nested_str)
         path.pop()
-    return "\n".join(lines)
+    return f"{'\n'.join(lines)}\n" if not path else "\n".join(lines)

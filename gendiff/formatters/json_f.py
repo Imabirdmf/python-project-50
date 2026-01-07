@@ -13,6 +13,5 @@ def format(data: list) -> str:
             lines.update({child["key"]: json.loads(nested_str)})
         elif child["type"] == "unchanged":
             lines.update({child["key"]: child["value"]})
-    serialized_lines = json.dumps(lines, indent=4, sort_keys=True)
+    serialized_lines = json.dumps(lines, indent=4, sort_keys=True) + "\n"
     return serialized_lines
-
