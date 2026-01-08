@@ -5,7 +5,9 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "pytest>=9.0.2",
     "pyyaml>=6.0.3",
+    "ruff>=0.14.10",
 ]
 
 [project.scripts]
@@ -40,7 +42,7 @@ exclude = ['\.venv', 'venv', '\.tox', '.tox']
 
 [pytest]
 norecursedirs = [".venv", "venv", ".tox"]
-minversion = "6.0"
+minversion = "9.0.2"
 testpaths = "tests"
 
 [dependency-groups]

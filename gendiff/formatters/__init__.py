@@ -1,6 +1,6 @@
-from gendiff.formatters.json_f import format as json_f
-from gendiff.formatters.plain import format as plain
-from gendiff.formatters.stylish import format as stylish
+from gendiff.formatters.json_f import format_json as json_f
+from gendiff.formatters.plain import format_plain as plain
+from gendiff.formatters.stylish import format_stylish as stylish
 
 FORMATTERS = {"stylish": stylish, "plain": plain, "json": json_f}
 

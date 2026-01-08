@@ -1,7 +1,7 @@
 import json
 
 
-def format(data: list) -> str:
+def format_json(data: list) -> str:
     lines = {}
     for child in data:
         if child["type"] == "added":
@@ -9,7 +9,7 @@ def format(data: list) -> str:
         elif child["type"] == "changed":
             lines.update({child["key"]: child["new_value"]})
         elif child["type"] == "nested":
-            nested_str = format(child["children"])
+            nested_str = format_json(child["children"])
             lines.update({child["key"]: json.loads(nested_str)})
         elif child["type"] == "unchanged":
             lines.update({child["key"]: child["value"]})

@@ -1,3 +1,0 @@
-[flake8]
-exclude = .venv,venv,pycache,.git,.tox
-max-line-length = 100
