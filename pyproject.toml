@@ -10,6 +10,7 @@ dev = [
     "pytest>=9.0.2",
     "ruff>=0.9.0,<0.9.8",
     "pyyaml>=6.0.3",
+    "pytest-cov>=7.0.0"
 ]
 
 [project.scripts]
