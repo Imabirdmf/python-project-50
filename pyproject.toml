@@ -4,10 +4,12 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
+
+[dependency-groups]
+dev = [
     "pytest>=9.0.2",
+    "ruff>=0.9.0,<0.9.8",
     "pyyaml>=6.0.3",
-    "ruff>=0.14.10",
 ]
 
 [project.scripts]
@@ -29,27 +31,19 @@ exclude = '''
     \.venv
   | venv
   | \.git
-  | \.tox
 )/
 '''
 
 [tool.isort]
-skip = [".venv", "venv", ".tox"]
+skip = [".venv", "venv"]
 profile = "black"
 
 [tool.mypy]
-exclude = ['\.venv', 'venv', '\.tox', '.tox']
+exclude = ['\.venv', 'venv']
 
 [pytest]
-norecursedirs = [".venv", "venv", ".tox"]
+norecursedirs = [".venv", "venv"]
 minversion = "9.0.2"
 testpaths = "tests"
 
-[dependency-groups]
-dev = [
-    "pytest>=9.0.2",
-    "pytest-cov>=7.0.0",
-    "tox>=4.32.0",
-    "tox-uv>=1.29.0",
-]
 
