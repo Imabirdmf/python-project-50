@@ -2,7 +2,8 @@ from gendiff.diff_logic import dict_diff
 
 
 def test_extra_value_second():
-    result = dict_diff({"a": 1, "b": 1, "c": 1}, {"a": 1, "b": 1, "c": 1, "d": 2})
+    result = dict_diff({"a": 1, "b": 1, "c": 1},
+                       {"a": 1, "b": 1, "c": 1, "d": 2})
     expected = [
         {"key": "a", "type": "unchanged", "value": 1},
         {"key": "b", "type": "unchanged", "value": 1},
@@ -13,7 +14,8 @@ def test_extra_value_second():
 
 
 def test_not_all_keys_in_second():
-    result = dict_diff({"a": 1, "b": 1, "c": 1}, {"a": 1, "b": 1})
+    result = dict_diff({"a": 1, "b": 1, "c": 1},
+                       {"a": 1, "b": 1})
     expected = [
         {"key": "a", "type": "unchanged", "value": 1},
         {"key": "b", "type": "unchanged", "value": 1},
@@ -23,7 +25,8 @@ def test_not_all_keys_in_second():
 
 
 def test_all_diff_values():
-    result = dict_diff({"a": 1, "b": 1, "c": 1}, {"a": 2, "b": 2, "c": 2})
+    result = dict_diff({"a": 1, "b": 1, "c": 1},
+                       {"a": 2, "b": 2, "c": 2})
     expected = [
         {"key": "a", "type": "changed", "old_value": 1, "new_value": 2},
         {"key": "b", "type": "changed", "old_value": 1, "new_value": 2},
@@ -33,7 +36,8 @@ def test_all_diff_values():
 
 
 def test_all_same_values():
-    result = dict_diff({"a": 1, "b": 1, "c": 1}, {"a": 1, "b": 1, "c": 1})
+    result = dict_diff({"a": 1, "b": 1, "c": 1},
+                       {"a": 1, "b": 1, "c": 1})
     expected = [
         {"key": "a", "type": "unchanged", "value": 1},
         {"key": "b", "type": "unchanged", "value": 1},
@@ -59,7 +63,8 @@ def test_empty_dict():
 
 
 def test_unique_value_in_second():
-    result = dict_diff({"a": 2, "b": 2, "c": 2}, {"a": 2, "d": 2})
+    result = dict_diff({"a": 2, "b": 2, "c": 2},
+                       {"a": 2, "d": 2})
     exected = [
         {"key": "a", "type": "unchanged", "value": 2},
         {"key": "b", "type": "removed", "value": 2},
@@ -84,11 +89,18 @@ def test_boolean_values():
 def test_mixed_values():
     result = dict_diff(
         {"a": True, "b": "abcd", "c": 1, "d": ["abc"], "e": None},
-        {"a": False, "b": "abcdghjk", "c": 10, "d": ["abc", "new"], "f": {"g": 0}},
+        {"a": False,
+                "b": "abcdghjk",
+                "c": 10,
+                "d": ["abc", "new"],
+                "f": {"g": 0}},
     )
     exected = [
         {"key": "a", "type": "changed", "old_value": True, "new_value": False},
-        {"key": "b", "type": "changed", "old_value": "abcd", "new_value": "abcdghjk"},
+        {"key": "b",
+         "type": "changed",
+         "old_value": "abcd",
+         "new_value": "abcdghjk"},
         {"key": "c", "type": "changed", "old_value": 1, "new_value": 10},
         {
             "key": "d",
@@ -118,19 +130,27 @@ def test_sort_keys():
 
 
 def test_single_key():
-    result = dict_diff({"z": 1}, {"z": 2})
-    expected = [{"key": "z", "type": "changed", "old_value": 1, "new_value": 2}]
+    result = dict_diff({"z": 1},
+                       {"z": 2})
+    expected = [{"key": "z",
+                 "type": "changed",
+                 "old_value": 1,
+                 "new_value": 2}]
     assert result == expected
 
 
 def test_dict_value_as_plain_value():
-    result = dict_diff({"a": {"b": 1}}, {"a": {"b": 2}})
+    result = dict_diff({"a": {"b": 1}},
+                       {"a": {"b": 2}})
     expected = [
         {
             "key": "a",
             "type": "nested",
             "children": [
-                {"key": "b", "type": "changed", "old_value": 1, "new_value": 2}
+                {"key": "b",
+                 "type": "changed",
+                 "old_value": 1,
+                 "new_value": 2}
             ],
         }
     ]
@@ -151,5 +171,8 @@ def test_none_added():
 
 def test_int_and_str_diff():
     result = dict_diff({"a": 1}, {"a": "1"})
-    expected = [{"key": "a", "type": "changed", "old_value": 1, "new_value": "1"}]
+    expected = [{"key": "a",
+                 "type": "changed",
+                 "old_value": 1,
+                 "new_value": "1"}]
     assert result == expected

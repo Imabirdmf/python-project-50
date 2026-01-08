@@ -15,9 +15,11 @@ DIFF_JSON_JSON = (
     "test_data_json/4.1.json",
 )
 
-NO_DIFF_YAML_YML = ("test_data_yaml/1.0.yaml", "test_data_yaml/1.0.yml")
+NO_DIFF_YAML_YML = ("test_data_yaml/1.0.yaml",
+                    "test_data_yaml/1.0.yml")
 
-NESTED_JSON_JSON = ("test_data_json/nested1.json", "test_data_json/nested2.json")
+NESTED_JSON_JSON = ("test_data_json/nested1.json",
+                    "test_data_json/nested2.json")
 
 
 EXPECTED = {
@@ -63,7 +65,9 @@ EXPECTED = {
 )
 def test_diff_files(file1, file2, format_name):
     expected_file = EXPECTED[(file1, file2)][format_name]
-    result = generate_diff(f"tests/{file1}", f"tests/{file2}", format_name=format_name)
+    result = generate_diff(f"tests/{file1}",
+                           f"tests/{file2}",
+                           format_name=format_name)
 
     with open(f"tests/{expected_file}", "r") as f:
         expected = f.read().strip("\n")
@@ -72,26 +76,30 @@ def test_diff_files(file1, file2, format_name):
 
 def test_file_not_found():
     with pytest.raises(FileNotFoundError):
-        generate_diff("non_existent.json", "tests/test_data/4.0.json")
+        generate_diff("non_existent.json",
+                      "tests/test_data/4.0.json")
 
 
 def test_invalid_json():
     with pytest.raises(json.JSONDecodeError):
         generate_diff(
-            "tests/test_data_json/invalid.json", "tests/test_data_json/4.0.json"
+            "tests/test_data_json/invalid.json",
+            "tests/test_data_json/4.0.json"
         )
 
 
 def test_invalid_yaml():
     with pytest.raises(yaml.YAMLError):
         generate_diff(
-            "tests/test_data_yaml/invalid.yaml", "tests/test_data_yaml/4.0.yaml"
+            "tests/test_data_yaml/invalid.yaml",
+            "tests/test_data_yaml/4.0.yaml"
         )
 
 
 def test_invalid_file_type():
     with pytest.raises(ValueError):
-        generate_diff("tests/test_data_yaml/yaml.doc", "tests/test_data_json/json.xls")
+        generate_diff("tests/test_data_yaml/yaml.doc",
+                      "tests/test_data_json/json.xls")
 
 
 def test_unknown_formatter():

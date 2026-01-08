@@ -1,6 +1,6 @@
 line-length = 80
 
-exclude = ["tests"]
+#exclude = ["tests"]
 
 [lint.per-file-ignores]
   # init modules can contain the local imports, logic, unused imports
